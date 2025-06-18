@@ -66,23 +66,6 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
   La especificación OpenAPI se encuentra en:
     src/main/resources/openapi/pricing-api.yml
 
-📂 Estructura de Proyecto
 
-  src/
-  ├── main/
-  │   ├── java/com/xxxxxxxx/pricing/
-  │   │   ├── domain/
-  │   │   ├── application/
-  │   │   │   └── port/
-  │   │   └── infrastructure/
-  │   │       └── adapter/
-  │   │           ├── in/   (controllers)
-  │   │           └── out/  (repository adapters)
-  │   └── resources/
-  │       └── openapi/
-  ├── test/
-  │   ├── unit/
-  │   ├── integration/
-  │   └── acceptance/  (tests con Cucumber)
 
 
