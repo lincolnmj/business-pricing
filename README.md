@@ -39,7 +39,10 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
 
 🧪 Pruebas
   # Ejecutar pruebas unitarias y de integración
-  mvn clean test
+  mvn clean test 
+
+  # Para ejecutar Cucumber
+  Ejecutar directamente la clase "CucumberTestRunner"
 
 
 🔄 Arquitectura
