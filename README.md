@@ -28,10 +28,12 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
 
   # Clona el proyecto
   git clone https://github.com/lincolnmj/business-princing.git
+  
   cd pricing-service
   
   # Genera recursos, compila y ejecuta
   mvn generate-sources
+  
   mvn clean spring-boot:run
 
 
