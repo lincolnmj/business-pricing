@@ -1,6 +1,5 @@
 package com.inditex.pricing.domain.exception;
 
-import com.inditex.pricing.domain.exception.PriceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -11,5 +10,4 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Void> handlePriceNotFoundException(PriceNotFoundException ex) {
         return ResponseEntity.noContent().build();
     }
-
 }

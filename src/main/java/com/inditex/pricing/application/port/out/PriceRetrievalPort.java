@@ -7,5 +7,4 @@ import java.time.LocalDateTime;
 
 public interface PriceRetrievalPort {
     Mono<Price> retrievePriceToApply(LocalDateTime applicationDate, Long brandId, Long productId);
-
 }

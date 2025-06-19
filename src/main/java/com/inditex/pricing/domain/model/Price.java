@@ -16,7 +16,4 @@ public class Price {
     private LocalDateTime endDate;
     private BigDecimal price;
     private String currency;
-
-
-
 }

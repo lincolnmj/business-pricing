@@ -1,11 +1,13 @@
 spring:
   application:
     name: pricing-service
-
   r2dbc:
     url: r2dbc:h2:mem:///pricingdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
+  pool:
+    enabled: true
+    max-size: 10
 
   sql:
     init:
@@ -18,6 +20,10 @@ spring:
 
 server:
   port: 8080
+
+reactor:
+  netty:
+    ioWorkerCount: 8
 
 logging:
   level:

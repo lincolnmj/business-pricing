@@ -18,3 +18,5 @@ CREATE TABLE BRAND (
 ALTER TABLE PRICES
 ADD CONSTRAINT FK_PRICES_BRAND
 FOREIGN KEY (BRAND_ID) REFERENCES BRAND(ID);
+
+CREATE INDEX idx_price_lookup ON prices (product_id, brand_id, start_date, end_date, priority);

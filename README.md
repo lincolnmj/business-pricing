@@ -7,8 +7,6 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
   🧪 Pruebas
   🔄 Arquitectura
   📄 API - OpenAPI
-  📂 Estructura de Proyecto
-  ✍ Autores
 
 
 📦 Stack Tecnológico
@@ -20,6 +18,11 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
   OpenAPI v3 (contract-first)
   Cucumber (pruebas BDD)
   JUnit 5
+
+📄 API - OpenAPI
+La especificación OpenAPI se encuentra en:
+src/main/resources/openapi/pricing-api.yml
+
 
 🚀 Ejecución Local
   Prerrequisitos
@@ -41,9 +44,10 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
   # Ejecutar pruebas unitarias y de integración
   mvn clean test 
 
-  # Para ejecutar Cucumber
-  Ejecutar directamente la clase "CucumberTestRunner"
+  # Para generar reporte JaCoCo
+  mvn clean verify
 
+  # Ver reporte JaCoCo en /business-princing/target/site/jacoco/index.html
 
 🔄 Arquitectura
   Este microservicio sigue una arquitectura hexagonal (ports & adapters):
@@ -65,10 +69,8 @@ Microservicio que expone una API REST para consultar el precio aplicable de un p
            │  PriceRetrievalPort  │───────► H2 R2DBC Repository
            └──────────────────────┘
 
-📄 API - OpenAPI
-  La especificación OpenAPI se encuentra en:
-    src/main/resources/openapi/pricing-api.yml
 
 
+🔄 Resultado de pruebas de performance
 
-
+  Rendimiento 499.60 solicitudes / sec

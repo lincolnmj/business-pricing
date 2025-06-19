@@ -1,18 +1,16 @@
-package com.inditex.pricing.application.port;
+package com.inditex.pricing.unit.application.port;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import lombok.extern.slf4j.Slf4j;
-
-
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-class ConsultPriceControllerIntegrationTest {
+class ConsultPriceIntegrationTest {
 
     @Autowired
     private WebTestClient webTestClient;
