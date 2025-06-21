@@ -249,8 +249,6 @@
 								<exclude>com/inditex/pricing/adapter/in/web/PricesApi*</exclude>
 								<exclude>com/inditex/pricing/adapter/in/web/ApiUtil*</exclude>
 								<exclude>com/inditex/pricing/adapter/in/web/model/*</exclude>
-								<exclude>com/inditex/pricing/config/*</exclude>
-								<exclude>com/inditex/pricing/PricingApplication*</exclude>
 							</excludes>
 						</configuration>
 					</execution>

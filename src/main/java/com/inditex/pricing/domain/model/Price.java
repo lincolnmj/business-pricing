@@ -1,7 +1,6 @@
 package com.inditex.pricing.domain.model;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,6 +13,6 @@ public class Price {
     private int priority;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private BigDecimal price;
+    private Double price;
     private String currency;
 }

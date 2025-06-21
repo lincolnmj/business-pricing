@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: pricing-service
+  r2dbc:
+    url: r2dbc:h2:mem:///pricingdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  pool:
+    enabled: true
+    max-size: 10
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+
+reactor:
+  netty:
+    ioWorkerCount: 8
+
+logging:
+  level:
+    root: INFO
+    org.springframework.r2dbc.core: WARN
+    org.springframework.boot.autoconfigure: WARN
+    org.springframework.web: INFO
+    io.r2dbc.h2: WARN
+    io.r2dbc.spi: WARN
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
