@@ -28,6 +28,7 @@
     | OpenAPI v3       | Contrato de la API REST en formato `YAML`, usado para generar interfaces     |
     | JUnit 5          | Framework para pruebas unitarias                                             | 
     | JaCoCo           | Herramienta para reporte de cobertura de pruebas                             |
+    | Caffeine         | Herramienta para manejo de caché para no consultar constantemente Marcas     |
 
 🧩 Componentes clave
 
@@ -161,6 +162,15 @@ El contrato de la API REST se encuentra en:
 Se utiliza OpenAPI Generator para crear la interfaz PricesApiSpec, implementada por el controlador.
 
 
+🗃️ Caché con Caffeine
+🗃️ Caché con Caffeine
+
+Este proyecto utiliza Caffeine como motor de caché en memoria, con una política de expiración por acceso de 12 horas y un tamaño máximo de 100 elementos. Se usa específicamente para evitar consultas repetidas a la tabla de marcas (Brand):
+    
+    private final AsyncCache<Long, BrandEntity> cache = Caffeine.newBuilder()
+    .maximumSize(100)
+    .expireAfterAccess(Duration.ofHours(12))
+    .buildAsync();
 
 📊 Resultado de pruebas de performance
 ⚙ Ejecutado con Autocannon simulando carga sobre WebFlux.

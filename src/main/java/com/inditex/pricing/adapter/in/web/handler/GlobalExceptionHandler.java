@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(PriceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handlePriceNotFoundException(PriceNotFoundException ex) {
-        ApiErrorResponse response = new ApiErrorResponse();
+        final ApiErrorResponse response = new ApiErrorResponse();
         response.setStatus(204);
         response.setMessage(ex.getMessage());
         response.setTimestamp(String.valueOf(LocalDateTime.now()));
@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DateTimeParseException.class)
     public ResponseEntity<ApiErrorResponse> handleDateTimeParseException(DateTimeParseException ex) {
-        ApiErrorResponse response = new ApiErrorResponse();
+        final ApiErrorResponse response = new ApiErrorResponse();
         response.setStatus(400);
         response.setMessage(ex.getMessage());
         response.setTimestamp(String.valueOf(LocalDateTime.now()));

@@ -24,7 +24,7 @@ public class BrandCache {
             .buildAsync();
 
     public Mono<BrandEntity> getBrandById(Long brandId) {
-        CompletableFuture<BrandEntity> future = cache.get(brandId, (key, executor) ->
+        final CompletableFuture<BrandEntity> future = cache.get(brandId, (key, executor) ->
                 brandRepository.findById(key).toFuture()
         );
         return Mono.fromFuture(future);

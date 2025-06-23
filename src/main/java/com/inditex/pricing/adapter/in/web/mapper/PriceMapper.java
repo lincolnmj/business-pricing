@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class PriceMapper {
     public PriceResponse toDto(Price domain) {
-        PriceResponse dto = new PriceResponse();
+        final PriceResponse dto = new PriceResponse();
 
-        BrandResponse brandDto = new BrandResponse();
+        final BrandResponse brandDto = new BrandResponse();
         brandDto.setId(domain.getBrand().getId());
         brandDto.setName(domain.getBrand().getName());
 
