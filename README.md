@@ -163,7 +163,6 @@ Se utiliza OpenAPI Generator para crear la interfaz PricesApiSpec, implementada 
 
 
 🗃️ Caché con Caffeine
-🗃️ Caché con Caffeine
 
 Este proyecto utiliza Caffeine como motor de caché en memoria, con una política de expiración por acceso de 12 horas y un tamaño máximo de 100 elementos. Se usa específicamente para evitar consultas repetidas a la tabla de marcas (Brand):
     
