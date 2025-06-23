@@ -17,7 +17,7 @@ public class PriceController implements PricesApiSpec {
     private final RetrievePriceUseCase retrievePriceUseCase;
     private final PriceMapper mapper;
     @Override
-    public Mono<ResponseEntity<PriceResponse>> getPrices(String date, Long brandId, Long productId,
+    public Mono<ResponseEntity<PriceResponse>> retrievePrice(String date, Long brandId, Long productId,
                                                          ServerWebExchange exchange) {
         final LocalDateTime applicationDate = LocalDateTime.parse(date);
         return retrievePriceUseCase

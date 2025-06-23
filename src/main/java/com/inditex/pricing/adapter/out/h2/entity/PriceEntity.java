@@ -39,6 +39,4 @@ public class PriceEntity {
     @Column("CURRENCY")
     private String currency;
 
-    @Column("NAME")
-    private String name;
 }

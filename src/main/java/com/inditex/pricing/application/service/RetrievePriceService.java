@@ -21,7 +21,7 @@ public class RetrievePriceService implements RetrievePriceUseCase {
     @Override
     public Mono<Price> retrievePrice(LocalDateTime applicationDate, Long brandId, Long productId) {
         return repositoryPort
-                .findAllPrices(applicationDate, brandId, productId)
+                .findPricesByDateAndBrandIdAndProductId(applicationDate, brandId, productId)
                 .collectList()
                 .flatMap(candidates -> {
                     return priceSelector.selectApplicablePrice(candidates)

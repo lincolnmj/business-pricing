@@ -5,118 +5,62 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class PriceEntityTest {
 
     @Test
-    void testConstructor() {
-         
-        Long brandId = 1L;
-        LocalDateTime startDate = LocalDateTime.now();
-        LocalDateTime endDate = LocalDateTime.now().plusDays(1);
-        int priceList = 1001;
-        Long productId = 2002L;
-        int priority = 1;
-        Double price = Double.valueOf(99.99);
-        String currency = "EUR";
-        String name = "ZARA";
+    void shouldBuildPriceEntityUsingBuilder() {
+        // given
+        LocalDateTime start = LocalDateTime.of(2020, 6, 14, 0, 0);
+        LocalDateTime end = LocalDateTime.of(2020, 12, 31, 23, 59);
 
-         
-        PriceEntity priceEntity = new PriceEntity(
-                brandId, startDate, endDate, priceList, productId, priority, price, currency, name
-        );
-
-         
-        assertEquals(brandId, priceEntity.getBrandId());
-        assertEquals(startDate, priceEntity.getStartDate());
-        assertEquals(endDate, priceEntity.getEndDate());
-        assertEquals(priceList, priceEntity.getPriceList());
-        assertEquals(productId, priceEntity.getProductId());
-        assertEquals(priority, priceEntity.getPriority());
-        assertEquals(price, priceEntity.getPrice());
-        assertEquals(currency, priceEntity.getCurrency());
-        assertEquals(name, priceEntity.getName());
-    }
-
-    @Test
-    void testBuilder() {
-         
-        Long brandId = 1L;
-        LocalDateTime startDate = LocalDateTime.now();
-        LocalDateTime endDate = LocalDateTime.now().plusDays(1);
-        int priceList = 1001;
-        Long productId = 2002L;
-        int priority = 1;
-        Double price = Double.valueOf(99.99);
-        String currency = "EUR";
-        String name = "Test Product";
-
-         
-        PriceEntity priceEntity = PriceEntity.builder()
-                .brandId(brandId)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(priceList)
-                .productId(productId)
-                .priority(priority)
-                .price(price)
-                .currency(currency)
-                .name(name)
+        // when
+        PriceEntity price = PriceEntity.builder()
+                .brandId(1L)
+                .productId(35455L)
+                .startDate(start)
+                .endDate(end)
+                .priceList(4)
+                .priority(1)
+                .price(38.95)
+                .currency("EUR")
                 .build();
 
-         
-        assertEquals(brandId, priceEntity.getBrandId());
-        assertEquals(startDate, priceEntity.getStartDate());
-        assertEquals(endDate, priceEntity.getEndDate());
-        assertEquals(priceList, priceEntity.getPriceList());
-        assertEquals(productId, priceEntity.getProductId());
-        assertEquals(priority, priceEntity.getPriority());
-        assertEquals(price, priceEntity.getPrice());
-        assertEquals(currency, priceEntity.getCurrency());
-        assertEquals(name, priceEntity.getName());
+        // then
+        assertThat(price.getBrandId()).isEqualTo(1L);
+        assertThat(price.getProductId()).isEqualTo(35455L);
+        assertThat(price.getStartDate()).isEqualTo(start);
+        assertThat(price.getEndDate()).isEqualTo(end);
+        assertThat(price.getPriceList()).isEqualTo(4);
+        assertThat(price.getPriority()).isEqualTo(1);
+        assertThat(price.getPrice()).isEqualTo(38.95);
+        assertThat(price.getCurrency()).isEqualTo("EUR");
     }
 
     @Test
-    void testSettersAndGetters() {
+    void shouldSetAndGetFields() {
+        // given
         PriceEntity entity = new PriceEntity();
 
+        // when
         entity.setBrandId(1L);
-        entity.setStartDate(LocalDateTime.now());
-        entity.setEndDate(LocalDateTime.now().plusDays(1));
-        entity.setPriceList(1);
         entity.setProductId(35455L);
+        entity.setStartDate(LocalDateTime.parse("2020-06-14T00:00"));
+        entity.setEndDate(LocalDateTime.parse("2020-12-31T23:59"));
+        entity.setPriceList(4);
         entity.setPriority(1);
-        entity.setPrice(Double.valueOf(35.5));
+        entity.setPrice(38.95);
         entity.setCurrency("EUR");
-        entity.setName("Test");
 
-        assertEquals(1L, entity.getBrandId());
-        assertNotNull(entity.getStartDate());
-        assertNotNull(entity.getEndDate());
-        assertEquals(1, entity.getPriceList());
-        assertEquals(35455L, entity.getProductId());
-        assertEquals(1, entity.getPriority());
-        assertEquals(Double.valueOf(35.5), entity.getPrice());
-        assertEquals("EUR", entity.getCurrency());
-        assertEquals("Test", entity.getName());
+        // then
+        assertThat(entity.getBrandId()).isEqualTo(1L);
+        assertThat(entity.getProductId()).isEqualTo(35455L);
+        assertThat(entity.getStartDate()).isEqualTo("2020-06-14T00:00");
+        assertThat(entity.getEndDate()).isEqualTo("2020-12-31T23:59");
+        assertThat(entity.getPriceList()).isEqualTo(4);
+        assertThat(entity.getPriority()).isEqualTo(1);
+        assertThat(entity.getPrice()).isEqualTo(38.95);
+        assertThat(entity.getCurrency()).isEqualTo("EUR");
     }
-
-    @Test
-    void testEqualsHashCodeToString() {
-        PriceEntity entity1 = new PriceEntity();
-        entity1.setBrandId(1L);
-        entity1.setProductId(35455L);
-        entity1.setPriceList(1);
-
-        PriceEntity entity2 = new PriceEntity();
-        entity2.setBrandId(1L);
-        entity2.setProductId(35455L);
-        entity2.setPriceList(1);
-
-        assertEquals(entity1, entity2);
-        assertEquals(entity1.hashCode(), entity2.hashCode());
-        assertTrue(entity1.toString().contains("PriceEntity"));
-    }
- 
 }

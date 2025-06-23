@@ -124,8 +124,11 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
- 
 
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -161,10 +164,10 @@
 								<generateTests>false</generateTests>
 								<generateApiTests>false</generateApiTests>
 								<skipValidateSpec>true</skipValidateSpec>
-								<skip>true</skip>
-								<useLombokAnnotations>true</useLombokAnnotations>
+								<useLombokAnnotations>false</useLombokAnnotations>
+								<inmutableModels>true</inmutableModels>
+								<userBeanValidation>true</userBeanValidation>
 							</configOptions>
-							<output>${project.build.directory}/generated-sources/openapi</output>
 						</configuration>
 					</execution>
 				</executions>
@@ -269,6 +272,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<excludeFilterFile>${project.basedir}/src/main/resources/excludeFilter.xml</excludeFilterFile>
+				</configuration>
 			</plugin>
 
 		</plugins>

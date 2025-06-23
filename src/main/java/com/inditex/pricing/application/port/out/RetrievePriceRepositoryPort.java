@@ -6,5 +6,5 @@ import reactor.core.publisher.Flux;
 import java.time.LocalDateTime; 
 
 public interface RetrievePriceRepositoryPort {
-    Flux<Price> findAllPrices(LocalDateTime applicationDate, Long brandId, Long productId);
+    Flux<Price> findPricesByDateAndBrandIdAndProductId(LocalDateTime applicationDate, Long brandId, Long productId);
 }

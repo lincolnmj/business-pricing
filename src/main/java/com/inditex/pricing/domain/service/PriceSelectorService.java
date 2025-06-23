@@ -10,7 +10,6 @@ public class PriceSelectorService {
 
     public Optional<Price> selectApplicablePrice(List<Price> candidates) {
         return candidates.stream()
-                .sorted(Comparator.comparingInt(Price::getPriority).reversed())
-                .findFirst();
+                .max(Comparator.comparingInt(Price::getPriority));
     }
 }

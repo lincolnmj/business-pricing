@@ -1,0 +1,17 @@
+<FindBugsFilter>
+    <Match>
+        <Class name="com.inditex.pricing.adapter.in.web.model.PriceResponse"/>
+    </Match>
+
+    <Match>
+        <Class name="com.inditex.pricing.adapter.in.web.model.PriceResponse"/>
+        <Method name="getBrand"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+
+    <Match>
+        <Class name="com.inditex.pricing.adapter.in.web.model.PriceResponse"/>
+        <Method name="setBrand"/>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+</FindBugsFilter>

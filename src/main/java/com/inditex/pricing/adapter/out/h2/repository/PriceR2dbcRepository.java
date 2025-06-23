@@ -20,7 +20,7 @@ public interface PriceR2dbcRepository extends ReactiveCrudRepository<PriceEntity
               AND START_DATE <= :applicationDate
               AND END_DATE >= :applicationDate
               """)
-    Flux<PriceEntity> findApplicablePrices(
+    Flux<PriceEntity> findPricesByDateAndBrandIdAndProductId(
             @Param("applicationDate") LocalDateTime applicationDate,
             @Param("brandId") Long brandId,
             @Param("productId") Long productId

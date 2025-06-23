@@ -8,7 +8,7 @@ paths:
     get:
       tags:
         - PricesSpec
-      operationId: getPrices
+      operationId: retrievePrice
       summary: Consulta precio por fecha, producto y marca
       parameters:
         - in: query
@@ -67,15 +67,22 @@ components:
             $ref: '#/components/schemas/ApiErrorResponse'
 
   schemas:
+    BrandResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     PriceResponse:
       type: object
       properties:
         productId:
           type: integer
           format: int64
-        brandId:
-          type: integer
-          format: int64
+        brand:
+          $ref: '#/components/schemas/BrandResponse'
         priceList:
           type: integer
         startDate:
@@ -95,4 +102,3 @@ components:
           type: string
         timestamp:
           type: string
-          format: date-time
